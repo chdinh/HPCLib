@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="CUDA Header Files">
+      <UniqueIdentifier>{fddf3f14-15b8-4557-a382-e46935f530fb}</UniqueIdentifier>
+      <Extensions>cuh</Extensions>
+    </Filter>
+    <Filter Include="CUDA Source Files">
+      <UniqueIdentifier>{13638526-4a90-46ae-86d8-81b4742abd95}</UniqueIdentifier>
+      <Extensions>cu</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="code\cuda\include\handle_error.cuh">
+      <Filter>CUDA Header Files</Filter>
+    </None>
+    <None Include="code\cuda\include\rapmusic_kernel.cuh">
+      <Filter>CUDA Header Files</Filter>
+    </None>
+    <None Include="code\cuda\include\rapmusic_cuda.cuh">
+      <Filter>CUDA Header Files</Filter>
+    </None>
+    <None Include="code\cuda\include\cudadevice.cuh">
+      <Filter>CUDA Header Files</Filter>
+    </None>
+    <None Include="code\cuda\include\cusvd.cuh">
+      <Filter>CUDA Header Files</Filter>
+    </None>
+    <None Include="code\cuda\include\cuhelpers.cuh">
+      <Filter>CUDA Header Files</Filter>
+    </None>
+    <None Include="code\cuda\include\cuhpcmatrix.cuh">
+      <Filter>CUDA Header Files</Filter>
+    </None>
+    <None Include="code\cuda\include\cuhpcvalue.cuh">
+      <Filter>CUDA Header Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="code\cpp\include\rapmusic_gold.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\cpp\include\model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\cpp\include\nomenclature.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\cpp\include\rapinterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\cpp\include\measurement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\cpp\include\rapdipoles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\cpp\include\dipole.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\cpp\include\hpcmatrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\cpp\include\error.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\cpp\include\eigeninterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="code\cpp\src\rapmusic_gold.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\cpp\src\model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\cpp\src\rapinterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\cpp\src\measurement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\cpp\src\rapdipoles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\cpp\src\dipole.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\cpp\src\hpcmatrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\cpp\src\error.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code\cpp\src\eigeninterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="main.cu">
+      <Filter>CUDA Source Files</Filter>
+    </CudaCompile>
+    <CudaCompile Include="code\cuda\src\rapmusic_cuda.cu">
+      <Filter>CUDA Source Files</Filter>
+    </CudaCompile>
+    <CudaCompile Include="code\cuda\src\cudadevice.cu">
+      <Filter>CUDA Source Files</Filter>
+    </CudaCompile>
+    <CudaCompile Include="code\cuda\src\rapmusic_kernel.cu">
+      <Filter>CUDA Source Files</Filter>
+    </CudaCompile>
+    <CudaCompile Include="code\cuda\src\cuhpcmatrix.cu">
+      <Filter>CUDA Source Files</Filter>
+    </CudaCompile>
+    <CudaCompile Include="code\cuda\src\cuhpcvalue.cu">
+      <Filter>CUDA Source Files</Filter>
+    </CudaCompile>
+  </ItemGroup>
+</Project>

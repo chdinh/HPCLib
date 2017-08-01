@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B5A5BC0B-6F62-4613-8254-B71620241AFF}</ProjectGuid>
+    <RootNamespace>RapMusic_CUDA</RootNamespace>
+    <CudaToolkitCustomDir>$(CudaToolkitPath)</CudaToolkitCustomDir>
+    <CudaToolkitCustomDir>
+    </CudaToolkitCustomDir>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v100</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 4.0.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>$(ProjectName)d</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <OpenMPSupport>true</OpenMPSupport>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>cudart.lib;cublas.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <CudaCompile>
+      <Runtime>MTd</Runtime>
+      <CodeGeneration>compute_20,sm_20</CodeGeneration>
+    </CudaCompile>
+    <CustomBuildStep>
+      <Command>xcopy /y "$(OutDir)$(ProjectName)d.exe" "$(SolutionDir)bin\"</Command>
+      <Outputs>$(SolutionDir)bin\$(ProjectName)d.exe;%(Outputs)</Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <OpenMPSupport>true</OpenMPSupport>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>cudart.lib;cublas.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <CudaCompile>
+      <Runtime>MT</Runtime>
+      <CodeGeneration>compute_20,sm_20</CodeGeneration>
+    </CudaCompile>
+    <CustomBuildStep>
+      <Outputs>$(SolutionDir)bin\$(ProjectName).exe</Outputs>
+      <Command>xcopy /y "$(OutDir)$(ProjectName).exe" "$(SolutionDir)bin\"</Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="code\cuda\include\cudadevice.cuh" />
+    <None Include="code\cuda\include\cuhelpers.cuh" />
+    <None Include="code\cuda\include\cuhpcmatrix.cuh" />
+    <None Include="code\cuda\include\cuhpcvalue.cuh" />
+    <None Include="code\cuda\include\cusvd.cuh" />
+    <None Include="code\cuda\include\handle_error.cuh" />
+    <None Include="code\cuda\include\rapmusic_cuda.cuh" />
+    <None Include="code\cuda\include\rapmusic_kernel.cuh" />
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="code\cuda\src\cudadevice.cu" />
+    <CudaCompile Include="code\cuda\src\cuhpcmatrix.cu" />
+    <CudaCompile Include="code\cuda\src\cuhpcvalue.cu" />
+    <CudaCompile Include="code\cuda\src\rapmusic_cuda.cu" />
+    <CudaCompile Include="code\cuda\src\rapmusic_kernel.cu" />
+    <CudaCompile Include="main.cu" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="code\cpp\include\dipole.h" />
+    <ClInclude Include="code\cpp\include\eigeninterface.h" />
+    <ClInclude Include="code\cpp\include\error.h" />
+    <ClInclude Include="code\cpp\include\rapdipoles.h" />
+    <ClInclude Include="code\cpp\include\measurement.h" />
+    <ClInclude Include="code\cpp\include\hpcmatrix.h" />
+    <ClInclude Include="code\cpp\include\nomenclature.h" />
+    <ClInclude Include="code\cpp\include\model.h" />
+    <ClInclude Include="code\cpp\include\rapinterface.h" />
+    <ClInclude Include="code\cpp\include\rapmusic_gold.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="code\cpp\src\dipole.cpp" />
+    <ClCompile Include="code\cpp\src\eigeninterface.cpp" />
+    <ClCompile Include="code\cpp\src\error.cpp" />
+    <ClCompile Include="code\cpp\src\rapdipoles.cpp" />
+    <ClCompile Include="code\cpp\src\measurement.cpp" />
+    <ClCompile Include="code\cpp\src\hpcmatrix.cpp" />
+    <ClCompile Include="code\cpp\src\model.cpp" />
+    <ClCompile Include="code\cpp\src\rapinterface.cpp" />
+    <ClCompile Include="code\cpp\src\rapmusic_gold.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 4.0.targets" />
+  </ImportGroup>
+</Project>
